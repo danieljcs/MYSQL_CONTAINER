@@ -6,9 +6,9 @@ services:
     restart: always
     environment:
       - MYSQL_DATABASE= db
-      - MYSQL_ROOT_PASSWORD= adminpira*123
+      - MYSQL_ROOT_PASSWORD= "adminpira*123"
       - MYSQL_USER=admin
-      - MYSQL_PASSWORD= pira*123
+      - MYSQL_PASSWORD= "pira*123"
     ports:
       - '3306:3306'
     volumes:
