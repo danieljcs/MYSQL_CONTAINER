@@ -1,19 +1,19 @@
 version: '3.8'
 services:
-  mysql:
+  db:
     image: mysql:8.0
     container_name: mysql
+    cap_add:
+      - SYS_NICE
     restart: always
     environment:
-      - MYSQL_DATABASE= db
-      - MYSQL_ROOT_PASSWORD= "adminpira*123"
-      - MYSQL_USER=admin
-      - MYSQL_PASSWORD= "pira*123"
+      - MYSQL_DATABASE=quotes
+      - MYSQL_ROOT_PASSWORD=inicioadminpira
     ports:
       - '3306:3306'
     volumes:
-      - mysql:/var/lib/mysql
+      - db:/var/lib/mysql
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
 volumes:
-  mysql:
+  db:
     driver: local
